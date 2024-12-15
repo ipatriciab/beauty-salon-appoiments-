@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Salon Beauty - Customers</title>
+</head>
+<body>
+    <h1>Customers</h1>
+    <ul>
+        <li th:each="customer : ${customers}">
+            <a th:href="@{/customer/{id}(id=${customer.id})}" th:text="${customer.name}"></a>
+        </li>
+    </ul>
+</body>
+</html>

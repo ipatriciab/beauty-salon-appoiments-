@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Salon Beauty - Appointment Details</title>
+</head>
+<body>
+    <h1>Appointment Details</h1>
+    <p>Service: <span th:text="${appointment.serviceName}"></span></p>
+    <p>Date and Time: <span th:text="${appointment.appointmentDateTime}"></span></p>
+    <p>Customer: <span th:text="${appointment.customerName}"></span></p>
+    <p>Price: <span th:text="${appointment.price}"></span></p>
+    <p>Notes: <span th:text="${appointment.notes}"></span></p>
+</body>
+</html>

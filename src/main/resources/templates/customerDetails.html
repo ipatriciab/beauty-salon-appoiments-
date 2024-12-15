@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Salon Beauty - Customer Details</title>
+</head>
+<body>
+    <h1>Customer Details</h1>
+    <p>Name: <span th:text="${customer.name}"></span></p>
+    <p>Email: <span th:text="${customer.email}"></span></p>
+    <p>Phone: <span th:text="${customer.phone}"></span></p>
+    <p>Address: <span th:text="${customer.address}"></span></p>
+    <h2>Appointments</h2>
+    <ul>
+        <li th:each="appointment : ${customer.appointments}">
+            <a th:href="@{/appointment/{id}(id=${appointment.id})}" th:text="${appointment.serviceName}"></a>
+            <span th:text="${appointment.appointmentDateTime}"></span>
+        </li>
+    </ul>
+</body>
+</html>

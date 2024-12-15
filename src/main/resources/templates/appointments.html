@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Salon Beauty - Appointments</title>
+</head>
+<body>
+    <h1>Appointments</h1>
+    <ul>
+        <li th:each="appointment : ${appointments}">
+            <a th:href="@{/appointment/{id}(id=${appointment.id})}" th:text="${appointment.serviceName}"></a>
+            <span th:text="${appointment.appointmentDateTime}"></span>
+        </li>
+    </ul>
+</body>
+</html>
