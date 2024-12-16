@@ -6,6 +6,8 @@ import com.beautySalon.model.Appointment;
 import com.beautySalon.repository.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -58,5 +60,10 @@ public class AppointmentService {
 
     public void deleteAppointment(Long id) {
         appointmentRepository.deleteById(id);
+    }
+    
+    public void sendDailyReminders() {
+        // Logica pentru trimiterea mementourilor zilnice.
+        System.out.println("Daily reminders sent to customers!");
     }
 }

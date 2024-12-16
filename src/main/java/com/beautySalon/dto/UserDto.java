@@ -1,6 +1,6 @@
 package com.beautySalon.dto;
 
-import com.beautySalon.model.enums.Role;
+import com.beautySalon.model.enums.UserRole;
 import lombok.Data;
 
 @Data
@@ -13,5 +13,5 @@ public class UserDto {
     private String email;
 
     // Enum pentru rolul utilizatorului
-    private Role role;
+    private UserRole userRole;
 }

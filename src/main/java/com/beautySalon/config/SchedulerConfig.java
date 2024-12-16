@@ -10,18 +10,18 @@ import org.springframework.scheduling.annotation.Scheduled;
 @EnableScheduling
 public class SchedulerConfig {
 
-    // == fields ==
     private final AppointmentService appointmentService;
 
-    // == constructor ==
     @Autowired
     public SchedulerConfig(AppointmentService appointmentService) {
         this.appointmentService = appointmentService;
     }
 
-    // will send reminders for today's appointments every 24 hours
-    @Scheduled(cron = "0 0 9 * * ?") // Executes every day at 9:00 AM
-    public void dailyReminderJob() {
-        appointmentService.sendDailyReminders(); // Custom logic to send reminders
+    /**
+     * Programare zilnică pentru a trimite mementouri despre programări.
+     */
+    @Scheduled(cron = "0 0 9 * * ?") // La ora 9:00 zilnic
+    public void sendReminders() {
+        appointmentService.sendDailyReminders();
     }
 }

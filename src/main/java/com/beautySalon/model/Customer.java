@@ -1,12 +1,11 @@
 package com.beautySalon.model;
 
-import jakarta.persistence.*;
 import lombok.Data;
-
+import javax.persistence.*;
 import java.util.List;
 
-@Data
 @Entity
+@Data
 public class Customer {
 
     @Id
@@ -14,13 +13,11 @@ public class Customer {
     private Long id;
 
     private String name;
-
     private String email;
-
     private String phone;
-
     private String address;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    // Relația cu programările
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Appointment> appointments;
 }

@@ -21,7 +21,7 @@ public class UserMapper {
         user.setUsername(dto.getUsername());
         user.setPassword(dto.getPassword());
         user.setEmail(dto.getEmail());
-        user.setRole(com.beautySalon.model.enums.Role.valueOf(dto.getRole()));
+        user.setRole(com.beautySalon.model.enums.UserRole.valueOf(dto.getRole()));
         return user;
     }
 }

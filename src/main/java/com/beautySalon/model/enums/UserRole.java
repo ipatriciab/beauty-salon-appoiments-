@@ -1,5 +1,5 @@
 package com.beautySalon.model.enums;
 
-public enum Role {
+public enum UserRole {
     ADMIN, CUSTOMER, STAFF
 }

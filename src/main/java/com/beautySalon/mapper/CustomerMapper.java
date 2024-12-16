@@ -3,17 +3,10 @@ package com.beautySalon.mapper;
 import com.beautySalon.dto.CustomerDto;
 import com.beautySalon.model.Customer;
 import org.springframework.stereotype.Component;
-
 import java.util.stream.Collectors;
 
 @Component
 public class CustomerMapper {
-
-    private final AppointmentMapper appointmentMapper;
-
-    public CustomerMapper(AppointmentMapper appointmentMapper) {
-        this.appointmentMapper = appointmentMapper;
-    }
 
     public CustomerDto toDto(Customer customer) {
         CustomerDto dto = new CustomerDto();
@@ -22,15 +15,25 @@ public class CustomerMapper {
         dto.setEmail(customer.getEmail());
         dto.setPhone(customer.getPhone());
         dto.setAddress(customer.getAddress());
-        dto.setAppointments(customer.getAppointments()
-                .stream()
-                .map(appointmentMapper::toDto)
-                .collect(Collectors.toList()));
+
+        if (customer.getAppointments() != null) {
+            dto.setAppointments(customer.getAppointments()
+                    .stream()
+                    .map(appointment -> {
+                        AppointmentDto appointmentDto = new AppointmentDto();
+                        appointmentDto.setId(appointment.getId());
+                        appointmentDto.setAppointmentDateTime(appointment.getAppointmentDateTime().toString());
+                        return appointmentDto;
+                    })
+                    .collect(Collectors.toList()));
+        }
+
         return dto;
     }
 
     public Customer toEntity(CustomerDto dto) {
         Customer customer = new Customer();
+        customer.setId(dto.getId());
         customer.setName(dto.getName());
         customer.setEmail(dto.getEmail());
         customer.setPhone(dto.getPhone());
